@@ -1,2 +1,2 @@
 # CS171PFinals
-Final Project for CS171P
+Raphael Dalangin's Final Project for CS171P
