@@ -1,7 +1,5 @@
 // Declaration of Important Camera Variables
 let scene, camera, renderer, controls;
-let keyboard = {};
-let player = { height: 12, speed: 0.2, turnSpeed: Math.PI*0.02 };
 let useWireframe = false;
 let lightHelper, lampLight;
 
@@ -2243,22 +2241,11 @@ function animate(){
     requestAnimationFrame(animate);
         renderer.render(scene, camera);
     }
-
-function keyDown(event){
-    keyboard[event.keyCode] = true;
-}
-
-function keyUp(event){
-    keyboard[event.keyCode] = false;
-}
  
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
-
-window.addEventListener('keydown', keyDown);
-window.addEventListener('keyup', keyUp);
  
 window.onload = init;
