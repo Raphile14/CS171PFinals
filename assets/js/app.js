@@ -1,5 +1,5 @@
 // Declaration of Important Camera Variables
-let scene, camera, renderer, control;
+let scene, camera, renderer, controls;
 let keyboard = {};
 let player = { height: 12, speed: 0.2, turnSpeed: Math.PI*0.02 };
 let useWireframe = false;
@@ -33,10 +33,7 @@ function init(){
     //#region Init
     scene = new THREE.Scene();
     // scene.fog = new THREE.Fog(0xffffff, 100, 950); // FOG
-
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 5000);
-    camera.position.set(-60, 30, 70); 
-    camera.lookAt(new THREE.Vector3(0, 120, 0));
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -47,6 +44,8 @@ function init(){
     renderer.shadowMap.type = THREE.BasicShadowMap;
 
     controls = new THREE.OrbitControls (camera, renderer.domElement);
+    camera.position.set(-60, 30, 70); // original
+    controls.update();
     //#endregion Init
 
     //================================== TEXTURES =================================
